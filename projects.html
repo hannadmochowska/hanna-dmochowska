@@ -1,11 +1,16 @@
 <!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects — Hanna Dmochowska</title>
-<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css">
 </head><body>
 <nav class="nav">
-  <a href="index.html"><strong>Hanna</strong></a><div class="spacer"></div>
-  <a href="projects.html">Projects</a><a href="publications.html">Publications</a><a href="cv.html">CV</a>
+  <a href="index.html"><strong>Hanna</strong></a>
+  <div class="spacer"></div>
+  <a href="projects.html">Projects</a>
+  <a href="publications.html">Publications</a>
+  <a href="cv.html">CV</a>
 </nav>
 
 <main class="container">
@@ -14,7 +19,10 @@
   <!-- CLAS -->
   <div id="clas" class="card">
     <h3>Closed-Loop Auditory Stimulation (CLAS) — SO Phase Targeting</h3>
-    <p class="muted">Goal: deliver tones near a target slow-oscillation phase despite system latency. Streaming “replay” script + synthetic ground truth for phase-error evaluation.</p>
+    <p class="muted">
+      Goal: deliver tones near a target slow-oscillation phase despite system latency.
+      Streaming “replay” script + synthetic ground truth for phase-error evaluation.
+    </p>
     <ul>
       <li>Band-pass 0.5–1.5 Hz · Hilbert phase · latency compensation</li>
       <li>Outputs: phase-error distribution (°), jitter, robustness vs SNR</li>
@@ -28,27 +36,30 @@
   <!-- Aperiodic slope -->
   <div id="slope" class="card">
     <h3>Aperiodic Spectral Slope Pipeline (REM)</h3>
-    <p class="muted">Welch PSD + (optional) parametric decomposition; parameter sweeps; synthetic 1/f validation; artifact robustness. One-command scripts to reproduce figures.</p>
+    <p class="muted">
+      Pipeline for estimating the aperiodic (1/f) slope during REM from hippocampal LFP.
+      Uses Welch power spectra and (optionally) FOOOF to separate periodic peaks from the
+      aperiodic background. Includes scripts for parameter reporting and reproducible fits.
+    </p>
     <ul>
-      <li>Reproducible scripts &amp; utilities (Welch, naive 1/f slope; optional FOOOF)</li>
-      <li>Deliverable: <code>make_all_figures.py</code> runs demos &amp; saves outputs</li>
+      <li>Data scope: REM-labeled segments; hippocampal recordings</li>
+      <li>Methods: Welch PSD → aperiodic slope (log–log fit or FOOOF)</li>
+      <li>Analyses: RGS14 <em>control</em> vs <em>positive</em>; OS vs Homecage (exploratory)</li>
+      <li>Findings: trends toward flatter slopes in RGS14-positive and OS, not statistically significant</li>
     </ul>
     <p>
       <a href="https://github.com/hanna-dmochowska/rem-slope-pipeline">Code</a>
       · <a href="assets/rem_slope_report.pdf">Report</a>
     </p>
-    <!-- If you prefer to deep-link straight to a key file, use this instead:
-    <p>
-      <a href="https://github.com/hanna-dmochowska/rem-slope-pipeline/blob/main/scripts/example_psd.py">Code</a>
-      · <a href="assets/rem_slope_report.pdf">Report</a>
-    </p>
-    -->
   </div>
 
   <!-- EEG ML baseline -->
   <div id="ml" class="card">
     <h3>EEG Sleep-Stage ML Baseline</h3>
-    <p class="muted">Leakage-safe sklearn baseline with bandpower (± slope) features, proper CV, confusion matrix, and artifact ablations.</p>
+    <p class="muted">
+      Leakage-safe sklearn baseline with bandpower (± slope) features, proper CV,
+      confusion matrix, and artifact ablations.
+    </p>
     <ul>
       <li>Pipeline: StandardScaler → LogisticRegression (swap models easily)</li>
       <li>Metrics: macro-F1, per-class scores, CM heatmap</li>
