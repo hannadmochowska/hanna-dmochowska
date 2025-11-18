@@ -1,27 +1,269 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CV — Hanna Dmochowska</title>
-<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css">
-</head><body>
-<nav class="nav"><a href="index.html"><strong>Hanna</strong></a><div class="spacer"></div>
-<a href="projects.html">Projects</a><a href="publications.html">Publications</a><a href="cv.html">CV</a></nav>
-<main class="container">
-  <h1>Curriculum Vitae</h1>
-  <p><a class="btn" href="assets/cv.pdf">Download PDF</a></p>
-  <div class="card">
-    <h3>Profile</h3>
-    <p class="muted">Biomedical sciences graduate with research and industry experience in neuroscience and AI. Skilled in EEG/MRI analysis and machine learning, currently pursuing an MSc in AI in Medicine to connect neuroscience with tech innovation. Experienced in interdisciplinary projects across academia and industry.</p>
-  </div>
-  <div class="card">
-    <h3>Education</h3>
-    <ul>
-      <li>MSc, AI in Medicine &amp; Medical Research — University College Dublin</li>
-      <li>BSc, Biomedical Science &amp; Neuroscience — Amsterdam University College</li>
-    </ul>
-  </div>
-    <h3>Profile</h3>
-    <p class="muted">Neuroscience × AI in Medicine; closed-loop sleep stimulation; EEG/MEG ML; reproducible methods.</p>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.css"><!-- keep your global styles -->
+<style>
+/* === CV page styles (scoped) === */
+:root{
+  --bg:#0e0e0f; --fg:#e8e8ea; --muted:#a6a6ab; --accent:#5fe1c3; --card:#161618;
+}
+body{background:var(--bg); color:var(--fg);}
+.cv-wrap{max-width:1100px; margin:40px auto; display:grid; grid-template-columns:280px 1fr; gap:40px; padding:0 16px;}
+@media (max-width:900px){ .cv-wrap{grid-template-columns:1fr;} .cv-aside{position:static;} }
+h1{font-size:28px; margin:0;}
+h2{font-size:18px; margin:28px 0 10px;}
+p,li{line-height:1.6;}
+.muted{color:var(--muted);}
+a{color:var(--accent); text-decoration:none;}
+a:hover{text-decoration:underline;}
+.cv-aside{position:sticky; top:24px; align-self:start}
+.cv-aside .name{font-size:34px; font-weight:700; line-height:1.1;}
+.cv-aside .role{margin-top:8px;}
+.cv-aside .links{margin-top:12px; display:flex; flex-direction:column; gap:6px;}
+.cv-aside .btn{display:inline-block; border:1px solid var(--accent); padding:8px 12px; border-radius:8px; margin-top:16px;}
+.cv-main .section{background:var(--card); padding:22px 22px 14px; border-radius:16px; box-shadow:0 0 0 1px #1f1f22 inset;}
+.item{display:grid; grid-template-columns:1fr auto; gap:8px 16px; padding:10px 0; border-top:1px solid #222;}
+.item:first-child{border-top:none;}
+.item .where{font-weight:600;}
+.item .what{color:var(--muted);}
+.item .when{color:var(--muted); white-space:nowrap; text-align:right;}
+ul.tight{margin:6px 0 0 18px;}
+ul.tight li{margin:4px 0;}
+.small{font-size:0.95rem;}
+hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
+/* print */
+@media print{
+  .nav, .cv-aside .btn{display:none !important;}
+  body{background:#fff; color:#000;}
+  .cv-wrap{max-width:none; gap:20px;}
+  .section{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html"><strong>Hanna</strong></a>
+  <div class="spacer"></div>
+  <a href="projects.html">Projects</a>
+  <a href="publications.html">Publications</a>
+  <a class="active" href="cv.html">CV</a>
+</nav>
+
+<main class="cv-wrap">
+  <!-- LEFT COLUMN -->
+  <aside class="cv-aside">
+    <div class="name">Hanna Dmochowska</div>
+    <div class="role muted">Neuroscience × AI in Medicine</div>
+    <p class="small muted">
+      Biomedical sciences graduate with research and industry experience in neuroscience and AI.
+      Currently completing an MSc in AI in Medicine (UCD, Dublin). Interested in memory & cognition,
+      neurotech, and biomedical AI that translates into practical impact.
+    </p>
+
+    <div class="links small">
+      <div>Location: Dublin, Ireland</div>
+      <div>Email: <a href="mailto:hdmochow@gmail.com">hdmochow@gmail.com</a></div>
+      <div>GitHub: <a href="https://github.com/hannadmochowska">hannadmochowska</a></div>
+      <div>LinkedIn: <a href="https://www.linkedin.com/in/hanna-dmochowska">/in/hanna-dmochowska</a></div>
+      <div>Website: <a href="./index.html">hannadmochowska — site</a></div>
+    </div>
+
+    <a class="btn" href="assets/cv.pdf">Download 1-page CV (PDF)</a>
+  </aside>
+
+  <!-- RIGHT COLUMN -->
+  <div class="cv-main">
+    <!-- Education -->
+    <section class="section">
+      <h2>Education</h2>
+      <div class="item">
+        <div>
+          <div class="where">MSc, AI in Medicine & Medical Research — University College Dublin (UCD), Ireland</div>
+          <div class="what">Neuroscience + AI; neurotech & biomedical AI; interdisciplinary, industry-engaged projects</div>
+        </div>
+        <div class="when">Expected 2026</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">BSc, Biomedical Science (Neuroscience) — Amsterdam University College (AUC), Netherlands</div>
+          <div class="what">Exchange: Boston College · Thesis: <em>Mechanisms of Memory Enhancement Through Closed-Loop Auditory Stimulation During Slow-Wave Sleep</em></div>
+        </div>
+        <div class="when">2025</div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Selected Experience</h2>
+
+      <div class="item">
+        <div>
+          <div class="where">AI Engineer — Ideal Shift AI</div>
+          <div class="what">Developed AI-driven solutions for strategic decision-making; applied ML to healthcare-related challenges; led delivery and client communication.</div>
+        </div>
+        <div class="when">2025</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="where">Data Analyst — Lion Rock Maritime</div>
+          <div class="what">Analyzed AIS and operational data to optimize fleet/port performance; forecasting and trend analysis for cost and efficiency improvements.</div>
+        </div>
+        <div class="when">2024–Present</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="where">Research Intern — Genzel Lab, Donders Institute (Radboud University)</div>
+          <div class="what">Analyzed cortico-hippocampal LFP related to memory consolidation; identified high-frequency events during sleep in Python; presented results in lab meetings.</div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="where">Molecular Cell Biology Lab — Boston College</div>
+          <div class="what">MET17 gene conservation via PCR & SDS-PAGE; plasmid transformation; microscopy.</div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="where">Research Project — Auriculotherapy & Anxiety (AUC)</div>
+          <div class="what">Investigated auriculotherapy’s effect on anxiety; analyzed data; presented at university symposium.</div>
+        </div>
+        <div class="when">2023</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Skills</h2>
+      <div class="item">
+        <div class="what">
+          <strong>Neuro & Lab:</strong> EEG/MRI, LFP analysis, PCR, Western Blot, Microscopy<br>
+          <strong>Programming & Data:</strong> Python, R, MATLAB, Power BI, Azure AI; signal processing; ML fundamentals<br>
+          <strong>Research:</strong> experimental design, analysis, literature review, scientific communication<br>
+          <strong>Soft skills:</strong> critical thinking, collaboration, adaptability, communication<br>
+          <strong>Languages:</strong> English, Polish, German, Spanish
+        </div>
+        <div class="when"></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Selected Projects</h2>
+      <div class="item">
+        <div>
+          <div class="where">Aperiodic Spectral Slope in REM — methods pipeline</div>
+          <div class="what small">
+            Code: <a href="https://github.com/hannadmochowska/rem-slope-pipeline">GitHub</a> ·
+            Report: <a href="assets/rem_slope_report.pdf">PDF</a>
+          </div>
+        </div>
+        <div class="when">2024–2025</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">Memory & Sleep — literature synthesis and timing strategies</div>
+          <div class="what small">
+            Thesis (SWS/CLAS): <a href="assets/clas_review.pdf">PDF</a> ·
+            Demo code: <a href="https://github.com/hannadmochowska/clas-closed-loop-demo">GitHub</a>
+          </div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">EEG Sleep-Stage ML baseline</div>
+          <div class="what small">
+            Code: <a href="https://github.com/hannadmochowska/neuro-ml-demos">GitHub</a>
+          </div>
+        </div>
+        <div class="when">2025</div>
+      </div>
+    </section>
+
+    <!-- Publications & Professional Development -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Publications & Professional Development</h2>
+
+      <div class="item">
+        <div>
+          <div class="where">Spectral Slope Analysis During REM Sleep <span class="muted">(technical report)</span></div>
+          <div class="what small">Methods for estimating aperiodic (1/f) slope in REM; exploratory comparisons.</div>
+          <div class="what small">PDF: <a href="assets/rem_slope_report.pdf">rem_slope_report.pdf</a></div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+
+      <div class="item">
+        <div>
+          <div class="where">Mechanisms of Memory Enhancement Through CLAS During SWS <span class="muted">(BSc thesis)</span></div>
+          <div class="what small">Literature review on timing, SO–spindle coupling, and memory outcomes.</div>
+          <div class="what small">PDF: <a href="assets/clas_review.pdf">clas_review.pdf</a></div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+
+      <hr class="sep">
+
+      <div class="item">
+        <div>
+          <div class="where">Designing & Implementing a Microsoft Azure AI Solution</div>
+          <div class="what small">Professional development</div>
+        </div>
+        <div class="when"></div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">Consumer Neuroscience & Neuromarketing</div>
+          <div class="what small">Professional development</div>
+        </div>
+        <div class="when"></div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">Consciousness & Cognition Summer School — University of Pisa</div>
+          <div class="what small">Training</div>
+        </div>
+        <div class="when">2024</div>
+      </div>
+      <div class="item">
+        <div>
+          <div class="where">Amsterdam Neuroscience Conference — attendee</div>
+          <div class="what small">Conference</div>
+        </div>
+        <div class="when">2023</div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Activities & Interests</h2>
+      <div class="item">
+        <div class="what">
+          Volunteered at Right2Education (student-led refugee support) · Public Relations Manager at AUC Newscast · Marathon runner & Ironman finisher
+        </div>
+        <div class="when"></div>
+      </div>
+    </section>
+
+    <!-- Referees -->
+    <section class="section" style="margin-top:20px;">
+      <h2>Referees</h2>
+      <p class="muted small">Available on request (Genzel Lab; UCD supervisor; internship PI).</p>
+    </section>
   </div>
 </main>
+
 <footer class="footer">© 2025 Hanna Dmochowska</footer>
-</body></html>
+</body>
+</html>
