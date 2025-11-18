@@ -5,12 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CV — Hanna Dmochowska</title>
 <link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.css"><!-- keep your global styles -->
+<link rel="stylesheet" href="styles.css">
 <style>
-/* === CV page styles (scoped) === */
-:root{
-  --bg:#0e0e0f; --fg:#e8e8ea; --muted:#a6a6ab; --accent:#5fe1c3; --card:#161618;
-}
+:root{ --bg:#0e0e0f; --fg:#e8e8ea; --muted:#a6a6ab; --accent:#5fe1c3; --card:#161618; }
 body{background:var(--bg); color:var(--fg);}
 .cv-wrap{max-width:1100px; margin:40px auto; display:grid; grid-template-columns:280px 1fr; gap:40px; padding:0 16px;}
 @media (max-width:900px){ .cv-wrap{grid-template-columns:1fr;} .cv-aside{position:static;} }
@@ -26,16 +23,13 @@ a:hover{text-decoration:underline;}
 .cv-aside .links{margin-top:12px; display:flex; flex-direction:column; gap:6px;}
 .cv-aside .btn{display:inline-block; border:1px solid var(--accent); padding:8px 12px; border-radius:8px; margin-top:16px;}
 .cv-main .section{background:var(--card); padding:22px 22px 14px; border-radius:16px; box-shadow:0 0 0 1px #1f1f22 inset;}
-.item{display:grid; grid-template-columns:1fr auto; gap:8px 16px; padding:10px 0; border-top:1px solid #222;}
+.item{display:grid; grid-template-columns:1fr auto; gap:8px 16px; padding:12px 0; border-top:1px solid #222;}
 .item:first-child{border-top:none;}
 .item .where{font-weight:600;}
-.item .what{color:var(--muted);}
 .item .when{color:var(--muted); white-space:nowrap; text-align:right;}
-ul.tight{margin:6px 0 0 18px;}
-ul.tight li{margin:4px 0;}
+ul.points{margin:6px 0 0 18px;}
+ul.points li{margin:4px 0;}
 .small{font-size:0.95rem;}
-hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
-/* print */
 @media print{
   .nav, .cv-aside .btn{display:none !important;}
   body{background:#fff; color:#000;}
@@ -60,9 +54,8 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
     <div class="name">Hanna Dmochowska</div>
     <div class="role muted">Neuroscience × AI in Medicine</div>
     <p class="small muted">
-      Biomedical sciences graduate with research and industry experience in neuroscience and AI.
-      Currently completing an MSc in AI in Medicine (UCD, Dublin). Interested in memory & cognition,
-      neurotech, and biomedical AI that translates into practical impact.
+      Biomedical sciences graduate with research & industry experience in neuroscience and AI.
+      MSc student in AI in Medicine (UCD). Interested in memory & cognition, neurotech, and biomedical AI with real-world impact.
     </p>
 
     <div class="links small">
@@ -81,19 +74,30 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
     <!-- Education -->
     <section class="section">
       <h2>Education</h2>
+
       <div class="item">
         <div>
           <div class="where">MSc, AI in Medicine & Medical Research — University College Dublin (UCD), Ireland</div>
-          <div class="what">Neuroscience + AI; neurotech & biomedical AI; interdisciplinary, industry-engaged projects</div>
+          <ul class="points">
+            <li>Focus: neuroscience & cognition, neurotech, biomedical AI</li>
+            <li>Interdisciplinary & industry-engaged coursework and research</li>
+            <li>Start: 2024 · <strong>Expected completion: 2026</strong></li>
+          </ul>
         </div>
-        <div class="when">Expected 2026</div>
+        <div class="when">2024–2026</div>
       </div>
+
       <div class="item">
         <div>
           <div class="where">BSc, Biomedical Science (Neuroscience) — Amsterdam University College (AUC), Netherlands</div>
-          <div class="what">Exchange: Boston College · Thesis: <em>Mechanisms of Memory Enhancement Through Closed-Loop Auditory Stimulation During Slow-Wave Sleep</em></div>
+          <ul class="points">
+            <li>Exchange semester: Boston College (Molecular Cell Biology Lab)</li>
+            <li><strong>Thesis:</strong> <em>Mechanisms of Memory Enhancement Through Closed-Loop Auditory Stimulation During Slow-Wave Sleep</em> —
+              <a href="assets/clas_review.pdf">Download PDF</a></li>
+            <li>Graduated 2025</li>
+          </ul>
         </div>
-        <div class="when">2025</div>
+        <div class="when">2022–2025</div>
       </div>
     </section>
 
@@ -104,7 +108,11 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
       <div class="item">
         <div>
           <div class="where">AI Engineer — Ideal Shift AI</div>
-          <div class="what">Developed AI-driven solutions for strategic decision-making; applied ML to healthcare-related challenges; led delivery and client communication.</div>
+          <ul class="points">
+            <li>Built AI solutions for strategy & decision support; collaborated with stakeholders</li>
+            <li>Applied ML to healthcare-adjacent use cases; delivered clear, actionable outputs</li>
+            <li>Led delivery timelines and client communication</li>
+          </ul>
         </div>
         <div class="when">2025</div>
       </div>
@@ -112,7 +120,11 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
       <div class="item">
         <div>
           <div class="where">Data Analyst — Lion Rock Maritime</div>
-          <div class="what">Analyzed AIS and operational data to optimize fleet/port performance; forecasting and trend analysis for cost and efficiency improvements.</div>
+          <ul class="points">
+            <li>Analyzed AIS/operational datasets to surface efficiency and cost insights</li>
+            <li>Produced research-backed content on analytics and decarbonization</li>
+            <li>Translated complex tools into accessible narratives for non-technical readers</li>
+          </ul>
         </div>
         <div class="when">2024–Present</div>
       </div>
@@ -120,25 +132,13 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
       <div class="item">
         <div>
           <div class="where">Research Intern — Genzel Lab, Donders Institute (Radboud University)</div>
-          <div class="what">Analyzed cortico-hippocampal LFP related to memory consolidation; identified high-frequency events during sleep in Python; presented results in lab meetings.</div>
+          <ul class="points">
+            <li>Analyzed cortico-hippocampal LFP related to memory consolidation</li>
+            <li>Explored aperiodic (1/f) slope during REM; prepared figures & updates for lab meetings</li>
+            <li>Developed Python pipelines; collaborated in a remote research setting</li>
+          </ul>
         </div>
         <div class="when">2024</div>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="where">Molecular Cell Biology Lab — Boston College</div>
-          <div class="what">MET17 gene conservation via PCR & SDS-PAGE; plasmid transformation; microscopy.</div>
-        </div>
-        <div class="when">2024</div>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="where">Research Project — Auriculotherapy & Anxiety (AUC)</div>
-          <div class="what">Investigated auriculotherapy’s effect on anxiety; analyzed data; presented at university symposium.</div>
-        </div>
-        <div class="when">2023</div>
       </div>
     </section>
 
@@ -146,12 +146,14 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
     <section class="section" style="margin-top:20px;">
       <h2>Skills</h2>
       <div class="item">
-        <div class="what">
-          <strong>Neuro & Lab:</strong> EEG/MRI, LFP analysis, PCR, Western Blot, Microscopy<br>
-          <strong>Programming & Data:</strong> Python, R, MATLAB, Power BI, Azure AI; signal processing; ML fundamentals<br>
-          <strong>Research:</strong> experimental design, analysis, literature review, scientific communication<br>
-          <strong>Soft skills:</strong> critical thinking, collaboration, adaptability, communication<br>
-          <strong>Languages:</strong> English, Polish, German, Spanish
+        <div>
+          <ul class="points">
+            <li><strong>Neuro & Lab:</strong> EEG/MRI, LFP analysis, PCR, Western Blot, Microscopy</li>
+            <li><strong>Programming & Data:</strong> Python, R, MATLAB, Power BI, Azure AI; ML fundamentals; signal processing</li>
+            <li><strong>Research:</strong> experimental design, literature review, data analysis, scientific writing</li>
+            <li><strong>Workflow:</strong> Git/GitHub, documentation, reproducibility, interdisciplinary teamwork</li>
+            <li><strong>Languages:</strong> English, Polish, German, Spanish</li>
+          </ul>
         </div>
         <div class="when"></div>
       </div>
@@ -163,31 +165,13 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
       <div class="item">
         <div>
           <div class="where">Aperiodic Spectral Slope in REM — methods pipeline</div>
-          <div class="what small">
-            Code: <a href="https://github.com/hannadmochowska/rem-slope-pipeline">GitHub</a> ·
-            Report: <a href="assets/rem_slope_report.pdf">PDF</a>
-          </div>
+          <ul class="points">
+            <li>Welch PSD & aperiodic slope estimation (with optional parametric decomposition)</li>
+            <li>Reproducible scripts; parameter reporting; synthetic validation</li>
+            <li>Code: <a href="https://github.com/hannadmochowska/rem-slope-pipeline">GitHub</a> · Report: <a href="assets/rem_slope_report.pdf">PDF</a></li>
+          </ul>
         </div>
         <div class="when">2024–2025</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="where">Memory & Sleep — literature synthesis and timing strategies</div>
-          <div class="what small">
-            Thesis (SWS/CLAS): <a href="assets/clas_review.pdf">PDF</a> ·
-            Demo code: <a href="https://github.com/hannadmochowska/clas-closed-loop-demo">GitHub</a>
-          </div>
-        </div>
-        <div class="when">2024</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="where">EEG Sleep-Stage ML baseline</div>
-          <div class="what small">
-            Code: <a href="https://github.com/hannadmochowska/neuro-ml-demos">GitHub</a>
-          </div>
-        </div>
-        <div class="when">2025</div>
       </div>
     </section>
 
@@ -197,73 +181,31 @@ hr.sep{border:0; border-top:1px solid #222; margin:18px 0;}
 
       <div class="item">
         <div>
-          <div class="where">Spectral Slope Analysis During REM Sleep <span class="muted">(technical report)</span></div>
-          <div class="what small">Methods for estimating aperiodic (1/f) slope in REM; exploratory comparisons.</div>
-          <div class="what small">PDF: <a href="assets/rem_slope_report.pdf">rem_slope_report.pdf</a></div>
-        </div>
-        <div class="when">2024</div>
-      </div>
-
-      <div class="item">
-        <div>
-          <div class="where">Mechanisms of Memory Enhancement Through CLAS During SWS <span class="muted">(BSc thesis)</span></div>
-          <div class="what small">Literature review on timing, SO–spindle coupling, and memory outcomes.</div>
-          <div class="what small">PDF: <a href="assets/clas_review.pdf">clas_review.pdf</a></div>
-        </div>
-        <div class="when">2024</div>
-      </div>
-
-      <hr class="sep">
-
-      <div class="item">
-        <div>
-          <div class="where">Designing & Implementing a Microsoft Azure AI Solution</div>
-          <div class="what small">Professional development</div>
+          <div class="where">Publications & Reports</div>
+          <ul class="points">
+            <li><strong>Spectral Slope Analysis During REM Sleep</strong> (technical report, 2024) — methods for estimating aperiodic (1/f) slope in REM; exploratory comparisons. <a href="assets/rem_slope_report.pdf">PDF</a></li>
+            <li><strong>Mechanisms of Memory Enhancement Through CLAS During SWS</strong> (BSc thesis, 2024) — literature review on timing, SO–spindle coupling, and memory outcomes. <a href="assets/clas_review.pdf">PDF</a></li>
+          </ul>
         </div>
         <div class="when"></div>
       </div>
-      <div class="item">
-        <div>
-          <div class="where">Consumer Neuroscience & Neuromarketing</div>
-          <div class="what small">Professional development</div>
-        </div>
-        <div class="when"></div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="where">Consciousness & Cognition Summer School — University of Pisa</div>
-          <div class="what small">Training</div>
-        </div>
-        <div class="when">2024</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="where">Amsterdam Neuroscience Conference — attendee</div>
-          <div class="what small">Conference</div>
-        </div>
-        <div class="when">2023</div>
-      </div>
-    </section>
 
-    <!-- Activities -->
-    <section class="section" style="margin-top:20px;">
-      <h2>Activities & Interests</h2>
       <div class="item">
-        <div class="what">
-          Volunteered at Right2Education (student-led refugee support) · Public Relations Manager at AUC Newscast · Marathon runner & Ironman finisher
+        <div>
+          <div class="where">Courses & Certificates</div>
+          <ul class="points">
+            <li><strong>An Introduction to Consumer Neuroscience &amp; Neuromarketing</strong> — Copenhagen Business School <span class="muted">· Issued Jun 2025</span></li>
+            <li><strong>Microsoft Certified: Azure AI Engineer Associate</strong> — Microsoft <span class="muted">· Issued Feb 2025</span></li>
+            <li><strong>Microsoft Certified: Azure Data Fundamentals</strong> — Microsoft <span class="muted">· Issued Feb 2025</span></li>
+            <li><strong>Microsoft Certified: Azure AI Fundamentals</strong> — Microsoft <span class="muted">· Issued Jan 2025</span></li>
+            <li><strong>Artificial Intelligence: Implications for Business Strategy</strong> — MIT Sloan School of Management <span class="muted">· Issued Dec 2024</span></li>
+            <li><strong>Fundamental Neuroscience for Neuroimaging</strong> — Johns Hopkins University <span class="muted">· Issued Jun 2023</span></li>
+            <li><strong>Understanding Medical Research: Your Facebook Friend is Wrong</strong> — Yale University | Coursera <span class="muted">· Issued Jan 2021</span></li>
+          </ul>
         </div>
         <div class="when"></div>
       </div>
     </section>
 
-    <!-- Referees -->
-    <section class="section" style="margin-top:20px;">
-      <h2>Referees</h2>
-      <p class="muted small">Available on request (Genzel Lab; UCD supervisor; internship PI).</p>
-    </section>
-  </div>
-</main>
-
-<footer class="footer">© 2025 Hanna Dmochowska</footer>
-</body>
-</html>
+    <!-- Activities & Interests -->
+    <section class="section" style="ma
