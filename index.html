@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,73 +15,107 @@
   <div class="typewriter-wrapper">
     <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
   </div>
+
+  <!-- scroll-down button (styled like other buttons) -->
+  <button class="btn scroll-down" id="scrollDownBtn" aria-label="Scroll down">
+    <span class="scroll-down-text">scroll down</span>
+    <span class="scroll-down-arrow">↓</span>
+  </button>
 </section>
 
+<nav class="nav">
+  <a href="index.html"><strong>Hanna Dmochowska</strong></a>
+  <div class="spacer"></div>
+  <a href="projects.html">Projects</a>
+  <a href="publications.html">Publications</a>
+  <a href="cv.html">CV</a>
+  <a href="mailto:hdmochow@gmail.com">Contact</a>
+</nav>
 
-  <nav class="nav">
-    <a href="index.html"><strong>Hanna Dmochowska</strong></a>
-    <div class="spacer"></div>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html">Publications</a>
-    <a href="cv.html">CV</a>
-    <a href="mailto:hdmochow@gmail.com">Contact</a>
-  </nav>
-  
-  <main class="container">
-    <section class="hero">
-      <div>
-        <h1>Neuroscience × AI in Medicine</h1>
-        <p>
-          I’m a researcher working at the intersection of neuroscience and AI. I’m finishing an MSc in AI in Medicine at UCD (’26), after an honours BSc in Biomedical Science & Neuroscience at AUC. I’ve spent the last few years moving between Denmark, Amsterdam, and now Dublin—studying the brain, working on memory and sleep at the Genzel Lab, and learning how machine learning can actually support medicine.
+<main class="container">
+  <section class="hero">
+    <div>
+      <h1>Neuroscience × AI in Medicine</h1>
+      <p>
+        I’m a researcher working at the intersection of neuroscience and AI. I’m finishing an MSc in AI in Medicine at UCD (’26), after an honours BSc in Biomedical Science & Neuroscience at AUC. I’ve spent the last few years moving between Denmark, Amsterdam, and now Dublin—studying the brain, working on memory and sleep at the Genzel Lab, and learning how machine learning can actually support medicine.
 
-          A lot of my work comes back to the same question: how can we use technology to understand how the brain learns, remembers, and changes?
-          
-          I’m interested in research that’s clear, practical, and genuinely helpful—work that can go beyond theory and make a real difference for memory, health, and everyday life.        <p>
-          <a class="btn" href="projects.html">See Projects</a>
-        </p>
-        <p class="muted">
-          Based in EU · Email: hdmochow@gmail.com · LinkedIn www.linkedin.com/in/hanna-dmochowska
-        </p>
+        A lot of my work comes back to the same question: how can we use technology to understand how the brain learns, remembers, and changes?
+        
+        I’m interested in research that’s clear, practical, and genuinely helpful—work that can go beyond theory and make a real difference for memory, health, and everyday life.
+      </p>
+      <p>
+        <a class="btn" href="projects.html">See Projects</a>
+      </p>
+      <p class="muted">
+        Based in EU · Email: hdmochow@gmail.com · LinkedIn www.linkedin.com/in/hanna-dmochowska
+      </p>
+    </div>
+    <img src="assets/hanna-cutout.png" alt="Hanna headshot">
+  </section>
+
+  <div class="hr"></div>
+
+  <section>
+    <h2>Featured work</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>CLAS: real-time SO phase targeting</h3>
+        <p class="muted">Closed-loop demo for phase-locked tone delivery with latency compensation. Synthetic + replay evaluation.</p>
+        <p><a href="projects.html#clas">View</a> · <a href="https://github.com/&lt;you&gt;/clas-closed-loop-demo">Code</a></p>
       </div>
-      <img src="assets/hanna-cutout.png" alt="Hanna headshot">
-    </section>
-  
-    <div class="hr"></div>
-  
-    <section>
-      <h2>Featured work</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>CLAS: real-time SO phase targeting</h3>
-          <p class="muted">Closed-loop demo for phase-locked tone delivery with latency compensation. Synthetic + replay evaluation.</p>
-          <p><a href="projects.html#clas">View</a> · <a href="https://github.com/&lt;you&gt;/clas-closed-loop-demo">Code</a></p>
-        </div>
-        <div class="card">
-          <h3>Aperiodic slope pipeline (REM)</h3>
-          <p class="muted">Welch→FOOOF wrapper with parameter sweeps, synthetic 1/f validation, artifact robustness.</p>
-          <p><a href="projects.html#slope">View</a> · <a href="https://github.com/&lt;you&gt;/rem-slope-pipeline">Code</a></p>
-        </div>
+      <div class="card">
+        <h3>Aperiodic slope pipeline (REM)</h3>
+        <p class="muted">Welch→FOOOF wrapper with parameter sweeps, synthetic 1/f validation, artifact robustness.</p>
+        <p><a href="projects.html#slope">View</a> · <a href="https://github.com/&lt;you&gt;/rem-slope-pipeline">Code</a></p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <!-- Typewriter script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const text = "hey, I am Hanna";
-      const target = document.getElementById("typewriter-text");
-      let i = 0;
+<!-- Typewriter + scroll script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const text = "hey, I am Hanna";
+    const typingSpeed = 90; // ms per character
+    const target = document.getElementById("typewriter-text");
+    const scrollBtn = document.getElementById("scrollDownBtn");
+    const main = document.querySelector("main");
+    const nav = document.querySelector(".nav");
 
-      function typeNextChar() {
-        if (i <= text.length) {
-          target.textContent = text.slice(0, i);
-          i++;
-          setTimeout(typeNextChar, 90); // typing speed (ms per char)
-        }
+    let i = 0;
+
+    function typeNextChar() {
+      if (i <= text.length) {
+        target.textContent = text.slice(0, i);
+        i++;
+        setTimeout(typeNextChar, typingSpeed);
       }
+    }
 
-      typeNextChar();
-    });
-  </script>
+    typeNextChar();
+
+    // Show the button after typing is definitely finished
+    if (scrollBtn) {
+      const typingDuration = (text.length + 1) * typingSpeed + 200; // extra padding
+      setTimeout(function () {
+        scrollBtn.classList.add("visible");
+      }, typingDuration);
+    }
+
+    // scroll-down behavior
+    if (scrollBtn && main) {
+      scrollBtn.addEventListener("click", function () {
+        const navHeight = nav ? nav.offsetHeight : 0;
+        const rect = main.getBoundingClientRect();
+        const offsetTop = rect.top + window.pageYOffset - navHeight;
+
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      });
+    }
+  });
+</script>
 </body>
 </html>

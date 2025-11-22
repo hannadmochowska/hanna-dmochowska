@@ -4,12 +4,16 @@
 
 /* Fullscreen landing with only typewriter */
 #landing {
-    min-height: 100vh;          /* fill full viewport */
-    display: flex;
-    align-items: center;        /* vertical center */
-    justify-content: center;    /* horizontal center */
-    background: var(--bg);      /* page background (themed) */
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;   /* stack text + button vertically */
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  gap: 24px;                /* space between typewriter and button */
+  text-align: center;
+}
+
   
   /* text in the middle */
   .typewriter-bar {
@@ -176,51 +180,6 @@
     gap: 24px;
     align-items: center;
   }
-
-  /* subtle neural / EEG-style line behind hero */
-.hero-shell {
-  position: relative;
-  overflow: hidden; /* hide the edges of the wave */
-}
-
-/* horizontal wave line */
-.hero-shell::before {
-  content: "";
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  top: 18%;                     /* adjust up/down if needed */
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(119, 225, 198, 0.05) 10%,
-    rgba(119, 225, 198, 0.7) 40%,
-    rgba(119, 225, 198, 0.9) 50%,
-    rgba(119, 225, 198, 0.7) 60%,
-    rgba(119, 225, 198, 0.05) 90%,
-    transparent 100%
-  );
-  opacity: 0.35;
-  filter: blur(0.6px);
-  transform: translateY(0);
-  pointer-events: none;
-  animation: wave-drift 18s linear infinite;
-}
-
-/* optional: slight vertical curve to feel more “signal-like” */
-@keyframes wave-drift {
-  0% {
-    transform: translateX(-6%) translateY(0);
-  }
-  50% {
-    transform: translateX(6%) translateY(1px);
-  }
-  100% {
-    transform: translateX(-6%) translateY(0);
-  }
-}
-
   
   .hero h1 {
     font-size: 42px;   /* bigger "hey, I am Hanna" */
@@ -303,6 +262,40 @@
     box-shadow: 0 0 24px rgba(119, 225, 198, 0.25);
     transform: translateY(-1px);
   }
+
+  /* scroll-down button on landing */
+.scroll-down {
+  padding: 8px 22px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  /* fade-in behavior */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* when ready, fade in + become clickable */
+.scroll-down.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-down-arrow {
+  display: inline-block;
+  animation: arrow-bounce 1.4s ease-in-out infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
   
   /* -------------------- */
   /* GRID + CARDS         */
@@ -343,3 +336,5 @@
   .muted {
     color: var(--muted);
   }
+
+  
