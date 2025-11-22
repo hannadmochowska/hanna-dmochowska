@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;        /* vertical center */
     justify-content: center;    /* horizontal center */
-    background: var(--bg);      /* dark page background */
+    background: var(--bg);      /* page background (themed) */
   }
   
   /* text in the middle */
@@ -17,6 +17,10 @@
     font-size: 2.2rem;          /* bigger font */
     font-weight: 500;
     letter-spacing: 0.03em;
+  }
+
+  .landing-intro {
+    font-size:2.2rem;
   }
   
   /* blinking cursor */
@@ -41,12 +45,32 @@
   /* THEME + GLOBAL       */
   /* -------------------- */
   
+  /* Default = dark mode */
   :root {
-    --bg: #0b0b0b;
-    --fg: #e9e9e9;
-    --muted: #a9a9a9;
+    color-scheme: dark;
+    --bg: #050506;
+    --fg: #f4f4f5;
+    --muted: #a1a1aa;
     --accent: #77e1c6;
-    --card: #141414;
+  
+    --card: #111217;
+    --border-subtle: #1f2933;
+  
+    --nav-bg: rgba(5, 5, 6, 0.96);
+  }
+  
+  /* Light mode overrides */
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f7f7fb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #0f766e;
+  
+    --card: #ffffff;
+    --border-subtle: #e5e7eb;
+  
+    --nav-bg: rgba(247, 247, 251, 0.96);
   }
   
   * {
@@ -82,15 +106,58 @@
     display: flex;
     gap: 18px;
     align-items: center;
-    background: var(--bg);  /* same as page background */
+    background: var(--nav-bg);  /* semi-opaque themed bg */
+    backdrop-filter: blur(14px);
   }
   
   .nav a {
     color: var(--fg);
+    position: relative;
+    transition:
+      color 0.18s ease,
+      text-shadow 0.18s ease;
+  }
+  
+  .nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 18px rgba(119, 225, 198, 0.6);  /* “light up” effect */
   }
   
   .nav .spacer {
     flex: 1;
+  }
+  
+  /* theme toggle button in nav */
+  .theme-toggle {
+    margin-left: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card);
+    color: var(--fg);
+    font-size: 0.75rem;
+    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease,
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  
+  .theme-toggle span {
+    font-size: 0.95rem;
+  }
+  
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    transform: translateY(-1px);
   }
   
   /* -------------------- */
@@ -100,7 +167,7 @@
   .container {
     max-width: 980px;
     margin: 0 auto;
-    padding: 28px 16px;
+    padding: 28px 16px 40px;
   }
   
   .hero {
@@ -109,15 +176,60 @@
     gap: 24px;
     align-items: center;
   }
+
+  /* subtle neural / EEG-style line behind hero */
+.hero-shell {
+  position: relative;
+  overflow: hidden; /* hide the edges of the wave */
+}
+
+/* horizontal wave line */
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 18%;                     /* adjust up/down if needed */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(119, 225, 198, 0.05) 10%,
+    rgba(119, 225, 198, 0.7) 40%,
+    rgba(119, 225, 198, 0.9) 50%,
+    rgba(119, 225, 198, 0.7) 60%,
+    rgba(119, 225, 198, 0.05) 90%,
+    transparent 100%
+  );
+  opacity: 0.35;
+  filter: blur(0.6px);
+  transform: translateY(0);
+  pointer-events: none;
+  animation: wave-drift 18s linear infinite;
+}
+
+/* optional: slight vertical curve to feel more “signal-like” */
+@keyframes wave-drift {
+  0% {
+    transform: translateX(-6%) translateY(0);
+  }
+  50% {
+    transform: translateX(6%) translateY(1px);
+  }
+  100% {
+    transform: translateX(-6%) translateY(0);
+  }
+}
+
   
   .hero h1 {
-    font-size: 34px;
+    font-size: 42px;   /* bigger "hey, I am Hanna" */
     margin: 8px 0;
   }
   
   .hero p {
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.7;
   }
   
   /* HERO IMAGE — NO FRAME / BORDER */
@@ -125,16 +237,36 @@
     width: 350px;
     height: 350px;
     object-fit: contain;     /* shows all of your cut-out */
-    border-radius: 999px;    /* circular; change to 16px if you prefer rounded square */
-    border: none;            /* ✅ no frame around the picture */
-    background: transparent; /* ensure no background box from CSS */
+    border-radius: 999px;    /* circular */
+    border: none;
+    background: transparent;
+  }
+  
+  /* stack hero on small screens */
+  @media (max-width: 800px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+  
+    .hero img {
+      justify-self: center;
+      width: 260px;
+      height: 260px;
+    }
+  }
+  
+  /* slightly smaller h1 on very small screens */
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 32px;
+    }
   }
   
   /* -------------------- */
   /* BUTTON               */
   /* -------------------- */
   
-  /* pill outline button like the screenshot */
   .btn {
     position: relative;
     display: inline-flex;
@@ -143,10 +275,10 @@
   
     padding: 12px 36px;
     border-radius: 999px;
-    border: 2px solid #9ca3af;      /* soft grey outline */
+    border: 2px solid var(--border-subtle);
     background: transparent;
   
-    color: #f9fafb;
+    color: var(--fg);
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.18em;
@@ -159,14 +291,16 @@
       border-color 0.18s ease,
       color 0.18s ease,
       box-shadow 0.18s ease,
-      transform 0.18s ease;
+      transform 0.18s ease,
+      background 0.18s ease;
   }
   
   /* hover: brighter + slight “lift” */
   .btn:hover {
     border-color: var(--accent);
     color: var(--accent);
-    box-shadow: 0 0 24px rgba(119, 225, 198, 0.3);
+    background: rgba(119, 225, 198, 0.06);
+    box-shadow: 0 0 24px rgba(119, 225, 198, 0.25);
     transform: translateY(-1px);
   }
   
@@ -182,9 +316,24 @@
   
   .card {
     background: var(--card);
-    border: 1px solid #1f1f1f;
+    border: 1px solid var(--border-subtle);
     border-radius: 14px;
     padding: 16px;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease,
+      background 0.18s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.26);
+    border-color: var(--accent);
+  }
+  
+  :root[data-theme="light"] .card:hover {
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.12);
   }
   
   .card h3 {
@@ -194,4 +343,3 @@
   .muted {
     color: var(--muted);
   }
-  
