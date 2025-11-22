@@ -1,50 +1,90 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hanna Dmochowska — Neuroscience × AI</title>
-<meta name="description" content="Neuroscience × AI in Medicine. Closed-loop sleep stimulation, EEG/MEG ML, reproducible pipelines.">
-<link rel="icon" href="favicon.ico"><link rel="stylesheet" href="styles.css">
-</head><body>
-<nav class="nav">
-  <a href="index.html"><strong>Hanna Dmochowska</strong></a>
-  <div class="spacer"></div>
-  <a href="projects.html">Projects</a>
-  <a href="publications.html">Publications</a>
-  <a href="cv.html">CV</a>
-  <a href="mailto:hdmochow@gmail.com">Contact</a>
-</nav>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hanna Dmochowska — Neuroscience × AI</title>
+  <meta name="description" content="Neuroscience × AI in Medicine. Closed-loop sleep stimulation, EEG/MEG ML, reproducible pipelines.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<main class="container">
-  <section class="hero">
-    <div>
-      <h1>Neuroscience × AI in Medicine</h1>
-      <p>I’ve followed curiosity across Europe—studying Biomedical Science & Neuroscience in Amsterdam @AUC, working on memory and sleep at the Genzel Lab, and now exploring AI in Medicine in Dublin @UCD. Along the way I’ve become obsessed with one question: how can we use technology to understand how the brain learns, remembers, and changes?
-At the intersection of neuroscience and machine learning, I’m drawn to work that is both rigorous and useful—closed-loop sleep experiments, clean EEG/MEG analyses, and tools others can actually run. I care about building methods that move from paper to practice, with an eye on real impact for memory, health, and everyday life.</p>
-      <p>
-        <a class="btn" href="projects.html">See Projects</a>
-      <p class="muted">Based in EU · Email: hdmochow@gmail.com · LinkedIn www.linkedin.com/in/hanna-dmochowska
-</p>
-    </div>
-    <img src="assets/headshot.jpg" alt="Hanna headshot">
-  </section>
+<!-- Fullscreen typewriter intro -->
+<section id="landing" class="landing-intro">
+  <div class="typewriter-wrapper">
+    <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+  </div>
+</section>
 
-  <div class="hr"></div>
 
-  <section>
-    <h2>Featured work</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>CLAS: real-time SO phase targeting</h3>
-        <p class="muted">Closed-loop demo for phase-locked tone delivery with latency compensation. Synthetic + replay evaluation.</p>
-        <p><a href="projects.html#clas">View</a> · <a href="https://github.com/<you>/clas-closed-loop-demo">Code</a></p>
+  <nav class="nav">
+    <a href="index.html"><strong>Hanna Dmochowska</strong></a>
+    <div class="spacer"></div>
+    <a href="projects.html">Projects</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">CV</a>
+    <a href="mailto:hdmochow@gmail.com">Contact</a>
+  </nav>
+  
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Neuroscience × AI in Medicine</h1>
+        <p>
+          I’ve followed curiosity across Europe—studying Biomedical Science & Neuroscience in Amsterdam @AUC, working on memory and sleep at the Genzel Lab, and now exploring AI in Medicine in Dublin @UCD. Along the way I’ve become obsessed with one question: how can we use technology to understand how the brain learns, remembers, and changes?
+        </p>
+        <p>
+          At the intersection of neuroscience and machine learning, I’m drawn to work that is both rigorous and useful—closed-loop sleep experiments, clean EEG/MEG analyses, and tools others can actually run. I care about building methods that move from paper to practice, with an eye on real impact for memory, health, and everyday life.
+        </p>
+        <p>
+          <a class="btn" href="projects.html">See Projects</a>
+        </p>
+        <p class="muted">
+          Based in EU · Email: hdmochow@gmail.com · LinkedIn www.linkedin.com/in/hanna-dmochowska
+        </p>
       </div>
-      <div class="card">
-        <h3>Aperiodic slope pipeline (REM)</h3>
-        <p class="muted">Welch→FOOOF wrapper with parameter sweeps, synthetic 1/f validation, artifact robustness.</p>
-        <p><a href="projects.html#slope">View</a> · <a href="https://github.com/<you>/rem-slope-pipeline">Code</a></p>
+      <img src="assets/headshot.jpg" alt="Hanna headshot">
+    </section>
+  
+    <div class="hr"></div>
+  
+    <section>
+      <h2>Featured work</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>CLAS: real-time SO phase targeting</h3>
+          <p class="muted">Closed-loop demo for phase-locked tone delivery with latency compensation. Synthetic + replay evaluation.</p>
+          <p><a href="projects.html#clas">View</a> · <a href="https://github.com/&lt;you&gt;/clas-closed-loop-demo">Code</a></p>
+        </div>
+        <div class="card">
+          <h3>Aperiodic slope pipeline (REM)</h3>
+          <p class="muted">Welch→FOOOF wrapper with parameter sweeps, synthetic 1/f validation, artifact robustness.</p>
+          <p><a href="projects.html#slope">View</a> · <a href="https://github.com/&lt;you&gt;/rem-slope-pipeline">Code</a></p>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
+  
+  <footer class="footer">© 2025 Hanna Dmochowska</footer>
 
-<footer class="footer">© 2025 Hanna Dmochowska</footer>
-</body></html>
+  <!-- Typewriter script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const text = "hey, I am Hanna";
+      const target = document.getElementById("typewriter-text");
+      let i = 0;
+
+      function typeNextChar() {
+        if (i <= text.length) {
+          target.textContent = text.slice(0, i);
+          i++;
+          setTimeout(typeNextChar, 90); // typing speed (ms per char)
+        }
+      }
+
+      typeNextChar();
+    });
+  </script>
+</body>
+</html>

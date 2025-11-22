@@ -1,3 +1,38 @@
+/* Fullscreen landing with only typewriter */
+.landing-intro {
+    min-height: 100vh;          /* fill full viewport */
+    display: flex;
+    align-items: center;        /* vertical center */
+    justify-content: center;    /* horizontal center */
+    background: var(--bg);      /* or #ffffff */
+  }
+  
+  /* wrapper so text is centered nicely */
+  .typewriter-wrapper {
+    text-align: center;
+    font-size: 2.2rem;          /* bigger font */
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  
+  /* blinking cursor */
+  .typewriter-cursor {
+    display: inline-block;
+    margin-left: 4px;
+    animation: blink 1s steps(1) infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+  
+  @media (max-width: 600px) {
+    .typewriter-wrapper {
+      font-size: 1.8rem;
+    }
+  }
+  
 :root{--bg:#0b0b0b;--fg:#e9e9e9;--muted:#a9a9a9;--accent:#77e1c6;--card:#141414}
 *{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
