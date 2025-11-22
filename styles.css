@@ -1,14 +1,18 @@
+/* -------------------- */
+/* TYPEWRITER LANDING   */
+/* -------------------- */
+
 /* Fullscreen landing with only typewriter */
-.landing-intro {
+#landing {
     min-height: 100vh;          /* fill full viewport */
     display: flex;
     align-items: center;        /* vertical center */
     justify-content: center;    /* horizontal center */
-    background: var(--bg);      /* or #ffffff */
+    background: var(--bg);      /* dark page background */
   }
   
-  /* wrapper so text is centered nicely */
-  .typewriter-wrapper {
+  /* text in the middle */
+  .typewriter-bar {
     text-align: center;
     font-size: 2.2rem;          /* bigger font */
     font-weight: 500;
@@ -28,25 +32,166 @@
   }
   
   @media (max-width: 600px) {
-    .typewriter-wrapper {
+    .typewriter-bar {
       font-size: 1.8rem;
     }
   }
   
-:root{--bg:#0b0b0b;--fg:#e9e9e9;--muted:#a9a9a9;--accent:#77e1c6;--card:#141414}
-*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.nav{max-width:980px;margin:0 auto;padding:18px 16px;display:flex;gap:18px;align-items:center}
-.nav a{color:var(--fg)}.nav .spacer{flex:1}
-.container{max-width:980px;margin:0 auto;padding:28px 16px}
-.hero{display:grid;grid-template-columns:1fr 220px;gap:24px;align-items:center}
-.hero h1{font-size:34px;margin:8px 0}
-.hero p{color:var(--muted);line-height:1.6}
-.hero img{width:220px;height:220px;border-radius:16px;object-fit:cover;border:1px solid #222}
-.btn{display:inline-block;padding:10px 14px;background:var(--accent);color:#0b0b0b;border-radius:10px;font-weight:600}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid #1f1f1f;border-radius:14px;padding:16px}
-.card h3{margin:6px 0 6px}.muted{color:var(--muted)}
-.footer{color:var(--muted);text-align:center;padding:40px 0}
-.hr{height:1px;background:#1d1d1d;margin:28px 0}
-.hidden{display:none}
+  /* -------------------- */
+  /* THEME + GLOBAL       */
+  /* -------------------- */
+  
+  :root {
+    --bg: #0b0b0b;
+    --fg: #e9e9e9;
+    --muted: #a9a9a9;
+    --accent: #77e1c6;
+    --card: #141414;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  
+  /* links */
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  /* -------------------- */
+  /* NAV (STICKY)         */
+  /* -------------------- */
+  
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 16px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    background: var(--bg);  /* same as page background */
+  }
+  
+  .nav a {
+    color: var(--fg);
+  }
+  
+  .nav .spacer {
+    flex: 1;
+  }
+  
+  /* -------------------- */
+  /* LAYOUT + HERO        */
+  /* -------------------- */
+  
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 16px;
+  }
+  
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+    align-items: center;
+  }
+  
+  .hero h1 {
+    font-size: 34px;
+    margin: 8px 0;
+  }
+  
+  .hero p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  
+  /* HERO IMAGE — NO FRAME / BORDER */
+  .hero img {
+    width: 350px;
+    height: 350px;
+    object-fit: contain;     /* shows all of your cut-out */
+    border-radius: 999px;    /* circular; change to 16px if you prefer rounded square */
+    border: none;            /* ✅ no frame around the picture */
+    background: transparent; /* ensure no background box from CSS */
+  }
+  
+  /* -------------------- */
+  /* BUTTON               */
+  /* -------------------- */
+  
+  /* pill outline button like the screenshot */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 12px 36px;
+    border-radius: 999px;
+    border: 2px solid #9ca3af;      /* soft grey outline */
+    background: transparent;
+  
+    color: #f9fafb;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  
+    cursor: pointer;
+    text-decoration: none;
+  
+    transition:
+      border-color 0.18s ease,
+      color 0.18s ease,
+      box-shadow 0.18s ease,
+      transform 0.18s ease;
+  }
+  
+  /* hover: brighter + slight “lift” */
+  .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 24px rgba(119, 225, 198, 0.3);
+    transform: translateY(-1px);
+  }
+  
+  /* -------------------- */
+  /* GRID + CARDS         */
+  /* -------------------- */
+  
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  
+  .card {
+    background: var(--card);
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    padding: 16px;
+  }
+  
+  .card h3 {
+    margin: 6px 0 6px;
+  }
+  
+  .muted {
+    color: var(--muted);
+  }
+  

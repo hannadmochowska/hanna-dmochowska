@@ -7,33 +7,151 @@
 <link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="styles.css">
 <style>
-:root{ --bg:#0e0e0f; --fg:#e8e8ea; --muted:#a6a6ab; --accent:#5fe1c3; --card:#161618; }
-body{background:var(--bg); color:var(--fg);}
-.cv-wrap{max-width:1100px; margin:40px auto; display:grid; grid-template-columns:280px 1fr; gap:40px; padding:0 16px;}
-@media (max-width:900px){ .cv-wrap{grid-template-columns:1fr;} .cv-aside{position:static;} }
-h1{font-size:28px; margin:0;}
-h2{font-size:18px; margin:28px 0 10px;}
+:root{
+  --bg:#0e0e0f;
+  --fg:#e8e8ea;
+  --muted:#a6a6ab;
+  --accent:#5fe1c3;
+  --card:#161618;
+}
+
+body{
+  background:var(--bg);
+  color:var(--fg);
+}
+
+.cv-wrap{
+  max-width:1100px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  padding:0 16px;
+}
+
+@media (max-width:900px){
+  .cv-wrap{
+    grid-template-columns:1fr;
+  }
+  .cv-aside{
+    position:static;
+  }
+}
+
+h1{font-size:28px;margin:0;}
+h2{font-size:18px;margin:28px 0 10px;}
 p,li{line-height:1.6;}
+
 .muted{color:var(--muted);}
-a{color:var(--accent); text-decoration:none;}
-a:hover{text-decoration:underline;}
-.cv-aside{position:sticky; top:24px; align-self:start}
-.cv-aside .name{font-size:34px; font-weight:700; line-height:1.1;}
+
+/* links: no underline on hover, just colour */
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+a:hover,
+a:focus-visible{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.cv-aside{
+  position:sticky;
+  top:60px;
+  align-self:start;
+}
+.cv-aside .name{
+  font-size:34px;
+  font-weight:700;
+  line-height:1.1;
+}
 .cv-aside .role{margin-top:8px;}
-.cv-aside .links{margin-top:12px; display:flex; flex-direction:column; gap:6px;}
-.cv-aside .btn{display:inline-block; border:1px solid var(--accent); padding:8px 12px; border-radius:8px; margin-top:16px;}
-.cv-main .section{background:var(--card); padding:22px 22px 14px; border-radius:16px; box-shadow:0 0 0 1px #1f1f22 inset;}
-.item{display:grid; grid-template-columns:1fr auto; gap:8px 16px; padding:12px 0; border-top:1px solid #222;}
+.cv-aside .links{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* pill outline button like index page */
+.btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:12px 36px;
+  border-radius:999px;
+  border:2px solid var(--accent);
+  background:transparent;
+
+  color:var(--fg);
+  font-size:0.9rem;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+
+  cursor:pointer;
+  text-decoration:none;
+
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* hover: mint + slight lift, no underline */
+.btn:hover,
+.btn:focus-visible{
+  border-color:var(--accent);
+  color:var(--accent);
+  box-shadow:0 0 24px rgba(95,225,195,0.3);
+  transform:translateY(-1px);
+  text-decoration:none;
+}
+
+/* spacing for the CV button in the sidebar */
+.cv-aside .btn{
+  margin-top:16px;
+}
+
+.cv-main .section{
+  background:var(--card);
+  padding:22px 22px 14px;
+  border-radius:16px;
+  box-shadow:0 0 0 1px #1f1f22 inset;
+}
+
+.item{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px 16px;
+  padding:12px 0;
+  border-top:1px solid #222;
+}
 .item:first-child{border-top:none;}
 .item .where{font-weight:600;}
-.item .when{color:var(--muted); white-space:nowrap; text-align:right;}
-ul.points{margin:6px 0 0 18px;}
-ul.points li{margin:4px 0;}
+.item .when{
+  color:var(--muted);
+  white-space:nowrap;
+  text-align:right;
+}
+
+ul.points{
+  margin:6px 0 0 18px;
+}
+ul.points li{
+  margin:4px 0;
+}
+
 .small{font-size:0.95rem;}
+
 @media print{
-  .nav, .cv-aside .btn{display:none !important;}
-  body{background:#fff; color:#000;}
-  .cv-wrap{max-width:none; gap:20px;}
+  .nav,
+  .cv-aside .btn{display:none !important;}
+  body{background:#fff;color:#000;}
+  .cv-wrap{max-width:none;gap:20px;}
   .section{break-inside:avoid;}
 }
 </style>
@@ -66,7 +184,7 @@ ul.points li{margin:4px 0;}
       <div>Website: <a href="./index.html">hannadmochowska — site</a></div>
     </div>
 
-    <a class="btn" href="assets/cv.pdf">Download 1-page CV (PDF)</a>
+    <a class="btn" href="assets/hanna_dmochowska_CV.pdf" download>Download 1-page CV (PDF)</a>
   </aside>
 
   <!-- RIGHT COLUMN -->
@@ -83,7 +201,7 @@ ul.points li{margin:4px 0;}
             <li>Interdisciplinary & industry-engaged coursework and research</li>
           </ul>
         </div>
-        <div class="when"> Expected 2026</div>
+        <div class="when">Expected 2026</div>
       </div>
 
       <div class="item">
@@ -92,10 +210,10 @@ ul.points li{margin:4px 0;}
           <ul class="points">
             <li>Exchange semester: Boston College</li>
             <li><strong>Thesis:</strong> <em>Mechanisms of Memory Enhancement Through Closed-Loop Auditory Stimulation During Slow-Wave Sleep</em> —
-                    <a href="assets/Mechanisms_of_Memory_Enhancement_Through_Closed-Loop_Auditory_Stimulation_During_Slow-Wave_Sleep.pdf">Download PDF</a>
+              <a href="assets/Mechanisms_of_Memory_Enhancement_Through_Closed-Loop_Auditory_Stimulation_During_Slow-Wave_Sleep.pdf">Download PDF</a>
           </ul>
         </div>
-        <div class="when"> 2025</div>
+        <div class="when">2025</div>
     </section>
 
     <!-- Experience -->
@@ -111,7 +229,7 @@ ul.points li{margin:4px 0;}
             <li>Led delivery timelines and client communication</li>
           </ul>
         </div>
-        <div class="when">2024-2025</div>
+        <div class="when">2024–2025</div>
       </div>
 
       <div class="item">
@@ -177,7 +295,7 @@ ul.points li{margin:4px 0;}
           <ul class="points">
             <li><strong>Spectral Slope Analysis During REM Sleep</strong> (technical report, 2024) — methods for estimating aperiodic (1/f) slope in REM; exploratory comparisons. Code: <a href="https://github.com/hannadmochowska/rem-slope-pipeline">GitHub</a> · Report: <a href="assets/rem_slope_report.pdf">PDF</a></li>
             <li><strong>Thesis:</strong> <em>Mechanisms of Memory Enhancement Through Closed-Loop Auditory Stimulation During Slow-Wave Sleep</em> —
-                    <a href="assets/Mechanisms_of_Memory_Enhancement_Through_Closed-Loop_Auditory_Stimulation_During_Slow-Wave_Sleep.pdf">Download PDF</a>
+              <a href="assets/Mechanisms_of_Memory_Enhancement_Through_Closed-Loop_Auditory_Stimulation_During_Slow-Wave_Sleep.pdf">Download PDF</a>
         </div>
         <div class="when"></div>
       </div>
@@ -225,7 +343,5 @@ ul.points li{margin:4px 0;}
     </section>
   </div>
 </main>
-
-<footer class="footer">© 2025 Hanna Dmochowska</footer>
 </body>
 </html>
