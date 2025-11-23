@@ -29,15 +29,6 @@ body{
   padding:0 16px;
 }
 
-@media (max-width:900px){
-  .cv-wrap{
-    grid-template-columns:1fr;
-  }
-  .cv-aside{
-    position:static;
-  }
-}
-
 h1{font-size:28px;margin:0;}
 h2{font-size:18px;margin:28px 0 10px;}
 p,li{line-height:1.6;}
@@ -154,6 +145,19 @@ ul.points li{
   .cv-wrap{max-width:none;gap:20px;}
   .section{break-inside:avoid;}
 }
+
+
+@media (max-width:900px){
+  .cv-wrap{
+    grid-template-columns:1fr;
+  }
+  .cv-aside{
+    margin-top: -70px;
+    position:relative;
+    padding-bottom: 40px;
+  }
+}
+
 </style>
 </head>
 <body>
