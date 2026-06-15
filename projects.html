@@ -37,18 +37,14 @@
   <div id="clas" class="card">
     <h3>Transcriptomic Pathway Activity Identifies Molecularly Distinct IDH Wild-Type Glioblastoma Subgroups</h3>
     <p class="muted">
-     A multi-omics analysis integrating RNA-seq, somatic mutation, and clinical data from the TCGA GBM PanCan Atlas
-      to identify transcriptomic subtypes of IDH wild-type glioblastoma and investigate their prognostic significance.
-      Pathway activities were inferred using PROGENy and used for unsupervised clustering, revealing three biologically
-      distinct subgroups with different mutation landscapes and signalling profiles. The analysis uncovered a
-      genomic-transcriptomic discordance where EGFR pathway hyperactivation was not driven by EGFR mutations but instead
-      by PTEN loss and NF1 enrichment. Survival modelling showed that integrating pathway activity and mutation data improved
-      prognostic performance compared to single-omic approaches, with EGFR and PI3K pathway activities emerging as key predictors
-      of outcome.
+     Integrated RNA-seq, mutation, and clinical data from TCGA GBM to identify transcriptomic subtypes of IDH wild-type glioblastoma.
+      Pathway-based clustering revealed three distinct subgroups and uncovered a genomic-transcriptomic discordance, where EGFR pathway
+      activation was driven by PTEN loss and NF1 mutations rather than EGFR mutations. Multi-omics integration improved prognostic
+      modelling compared to single-omic approaches.
     </p>
     <ul>
-      <li>Methods: TCGA GBM PanCan Atlas · RNA-seq integration · PROGENy · k-means clustering · maftools · Kaplan-Meier · Cox regression · Elastic Net Cox</li>
-      <li>Outputs: Transcriptomic subtypes · Pathway activity analysis · Mutation heatmaps · Survival curves · Integrated prognostic model</li>
+      <li>Methods: RNA-seq · PROGENy · k-means clustering · maftools · Cox regression · Elastic Net</li>
+      <li>Outputs: Subtype discovery · Pathway analysis · Survival modelling</li>
     </ul>
     <p>
       <a href="https://github.com/hannadmochowska/idh_wt_gmb/blob/main/GBM_survival_analysis.R">Code</a>
